@@ -24,10 +24,10 @@ int lirePhrase(char phrase[])
 void crypte(char texte[], int longueur, char chaineCryptage[], int clefCryptage)
 {
 	int i = 0;
-	int m = strlen(chaineCryptage);
+	int m = (int)strlen(chaineCryptage);
 	srand(clefCryptage);	
 
-	longueur = longueur <= strlen(texte) ? longueur : strlen(texte); // Si l'utilisateur veut crypter plus de caractères que la chaine n'en contient, on crypte jusqu'au dernier caractère de la chaine.
+	longueur = longueur <= strlen(texte) ? longueur : (int)strlen(texte); // Si l'utilisateur veut crypter plus de caractères que la chaine n'en contient, on crypte jusqu'au dernier caractère de la chaine.
 
 	for(i = 0; i < longueur; ++i) {
 		char c = (char)rand();
@@ -41,7 +41,7 @@ void affichePhrase(char phrase[], int longueur)
 {
 	int i = 0;
 
-	longueur = longueur <= strlen(phrase) ? longueur : strlen(phrase);
+	longueur = longueur <= strlen(phrase) ? longueur : (int)strlen(phrase);
 	for(i = 0; i < longueur; ++i) {
 		if(isprint(phrase[i])) {
 			putchar(phrase[i]);
