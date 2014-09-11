@@ -1,6 +1,6 @@
 /** 
  * \file exo1.c
- * \author Yann Feunteun
+ * \author Yann Feunteun, Yann Andreu
  * \version 0.1
  * \date 9 septembre 2014
  */
