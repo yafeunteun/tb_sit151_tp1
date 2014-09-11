@@ -8,22 +8,24 @@ int lirePhrase(char phrase[])
 {
 	int i = 0;
 
-	getchar(); 
-	while((phrase[i] = getchar()) != '\n' && i <= BUFFER_SIZE -1) ++i;
-       	
-	if(phrase[i-1] == '"') {
-		phrase[i-1] = '\0';
-	}
+	while(getchar() != '"');
 
-	return strlen(phrase -2);
+	while((phrase[i] = getchar()) != '"' && i <= BUFFER_SIZE -1) ++i;
+       	
+	
+	while(getchar() != '\n');
+
+	phrase[i] = '\0';
+
+	return i;
 }
 
 int lireCle()
 {
 	int cle = 0;
-	scanf("%d%*c", &cle);
+	scanf("%d", &cle);
 
-	return cle > 0 && cle < 255 ? cle : 0;
+	return cle > 0 && cle < 255 ? cle : lireCle();
 }
 
 void crypte(char texte[], int longueur, char chaineCryptage[])
