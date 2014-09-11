@@ -44,7 +44,7 @@ void crypte(char phrase[], int longueur, int cle)
 {
 	int i = 0;
 	
-	longueur = longueur <= strlen(phrase) ? longueur : strlen(phrase);
+	longueur = longueur <= strlen(phrase) ? longueur : (int)strlen(phrase);
 	for(i = 0; i < longueur; ++i) {
 		phrase[i] += cle;
 	}
@@ -54,7 +54,7 @@ void decrypte(char phrase[], int longueur, int cle)
 {
 	int i = 0;
 
-	longueur = longueur <= strlen(phrase) ? longueur : strlen(phrase);
+	longueur = longueur <= strlen(phrase) ? longueur : (int)strlen(phrase);
 	for(i = 0; i < longueur; ++i) {
 		phrase[i] -= cle;
 	}
@@ -64,7 +64,7 @@ void affichePhrase(char phrase[], int longueur)
 {
 	int i = 0;
 
-	longueur = longueur <= strlen(phrase) ? longueur : strlen(phrase);
+	longueur = longueur <= strlen(phrase) ? longueur : (int)strlen(phrase);
 	for(i = 0; i < longueur; ++i) {
 		if(isprint(phrase[i])) {
 			putchar(phrase[i]);
