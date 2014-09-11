@@ -22,38 +22,18 @@ int lirePhrase(char phrase[])
 void crypte(char texte[], int longueur, char chaineCryptage[], int clefCryptage)
 {
 	int i = 0;
+	int m = strlen(chaineCryptage);
 	srand(clefCryptage);	
 
 	longueur = longueur <= strlen(texte) ? longueur : strlen(texte);
-	if(strlen(chaineCryptage) <= strlen(texte)){
-		puts("La chaine de cryptage doit être plus longue que la chaine à crypter !");
-		exit(-1);
-	}
 
 	for(i = 0; i < longueur; ++i) {
 		char c = (char)rand();
-		texte[i] = c^chaineCryptage[i];
+		texte[i] = c^chaineCryptage[i%m];
 	}
 	
 }
 
-void decrypte(char phrase[], int longueur, char chaineCryptage[], int clefCryptage)
-{
-	int i = 0;
-	srand(clefCryptage);
-
-	longueur = longueur <= strlen(phrase) ? longueur : strlen(phrase);
-	if(strlen(chaineCryptage) <= strlen(phrase)){
-		puts("La chaine de cryptage doit plus longue que la chaine à crypter !");
-		exit(-1);
-	}
-	
-	for(i = 0; i < longueur; ++i) {
-		char c = (char)rand();
-		phrase[i] = c^chaineCryptage[i];
-	}
-
-}
 
 void affichePhrase(char phrase[], int longueur)
 {

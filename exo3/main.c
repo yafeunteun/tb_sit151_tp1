@@ -10,16 +10,14 @@ int main(int argc, char *argv[])
 	int phraseLen = 0, clefCryptage = 55;
 
 	puts("Entrez une phrase au clavier encadree par des guillemets : ");
-	lirePhrase(phrase);
-	phraseLen = strlen(phrase);
+	phraseLen = lirePhrase(phrase);
 
 	crypte(phrase, phraseLen, chaineCryptage, clefCryptage);
-	decrypte(phrase, phraseLen, chaineCryptage, clefCryptage);
-	printf("Texte en clair : ");
+	printf("Texte en crypte : ");
 	affichePhrase(phrase, phraseLen);
 	
 	crypte(phrase, phraseLen, chaineCryptage, clefCryptage);
-	printf("Texte en crypte : ");
+	printf("Texte en clair : ");
 	affichePhrase(phrase, phraseLen);
 
 	return 0;
