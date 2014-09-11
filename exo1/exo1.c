@@ -36,9 +36,9 @@ int lirePhrase(char phrase[])
 int lireCle()
 {
 	int cle = 0;
-	scanf("%d%*c", &cle);
+	scanf("%d", &cle);
 
-	return cle > 0 && cle < 255 ? cle : 0;
+	return cle > 0 && cle < 255 ? cle : lireCle();
 }
 
 void crypte(char phrase[], int longueur, int cle)
