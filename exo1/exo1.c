@@ -22,15 +22,14 @@ int lirePhrase(char phrase[])
 {
 	int i = 0;
 
-	getchar(); // Consomme le premier caractère i.e. la première double quote.
+	while(getchar()!='"'); // Consomme tous les caractères jusqu'à la détection d'un double quote
 	
-	while((phrase[i] = getchar()) != '\n' && i <= BUFFER_SIZE -1) ++i;
-       	
-	if(phrase[i-1] == '"') {
-		phrase[i-1] = '\0';
-	}
+	while((phrase[i] = getchar()) != '"' && i <= BUFFER_SIZE -1) ++i;
+    
+    while (getchar()!='\n'); // Consomme tous les caractères suivant les quotes fermantes
+    phrase[i] = '\0';
 
-	return strlen(phrase -2);
+	return i;
 }
 
 int lireCle()
