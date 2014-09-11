@@ -31,32 +31,15 @@ int lireCle()
 void crypte(char texte[], int longueur, char chaineCryptage[])
 {
 	int i = 0;
+	int m = strlen(chaineCryptage);
 	
 	longueur = longueur <= strlen(texte) ? longueur : strlen(texte);
-	if(strlen(chaineCryptage) <= strlen(texte)){
-		puts("La chaine de cryptage doit être plus longue que la chaine à crypter !");
-		exit(-1);
-	}
 
 	for(i = 0; i < longueur; ++i) {
-		texte[i] = texte[i]^chaineCryptage[i];
+		texte[i] = texte[i]^chaineCryptage[i%m];
 	}
 }
 
-void decrypte(char phrase[], int longueur, char chaineCryptage[])
-{
-	int i = 0;
-
-	longueur = longueur <= strlen(phrase) ? longueur : strlen(phrase);
-	if(strlen(chaineCryptage) <= strlen(phrase)){
-		puts("La chaine de cryptage doit plus longue que la chaine à crypter !");
-		exit(-1);
-	}
-
-	for(i = 0; i < longueur; ++i) {
-		phrase[i] = phrase[i]^chaineCryptage[i];
-	}
-}
 
 void affichePhrase(char phrase[], int longueur)
 {

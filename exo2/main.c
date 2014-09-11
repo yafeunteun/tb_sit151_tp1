@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	printf("Texte en crypte : ");
 	affichePhrase(phrase, phraseLen);
 
-	decrypte(phrase, phraseLen, chaineCryptage);
+	crypte(phrase, phraseLen, chaineCryptage);
 	printf("Texte en clair : ");
 	affichePhrase(phrase, phraseLen);
 
